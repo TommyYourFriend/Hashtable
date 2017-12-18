@@ -1,0 +1,42 @@
+import java.util.*;
+import java.io.*;
+
+import static java.lang.System.*;
+public class HashTableRunner
+{
+  
+    public static void main(String[] args)throws IOException
+  {
+    String line = "";
+    HashTable table = new HashTable();
+    Word the;
+    try(BufferedReader br = new BufferedReader(new FileReader("words.dat")))
+    {
+        br.readLine();
+        Word word;
+        while((line = br.readLine()) != null)
+        {
+            word = new Word(line);
+           // if(table.getArray()[word.hashCode()] == null)
+           //     table.getArray()[word.hashCode()] = new ArrayList<Word>(); 
+            table.add(word);
+            
+        }
+        
+    
+    }
+    System.out.println(table.toString());
+    
+    /*
+    for(int i = 0; i < 10; i++)
+    {
+        the = table.getArray()[i].toString;
+        if(table.getArray()[i]==null)
+            System.out.println("Bucket empty " + i);
+         else 
+           System.out.println("Bucket " + i + the.getWord());
+    }
+      //Arrays.toString(houseAddress.toArray())
+    */
+  }
+}
