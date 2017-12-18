@@ -1,0 +1,46 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+import static java.lang.System.*;
+import java.util.Arrays;
+import java.util.*;
+public class HashTable
+{
+    private ArrayList[] table;
+
+    public HashTable( )
+    {
+      table =  new ArrayList[10];
+    }
+    public ArrayList[] getArray()
+    {
+        return table;
+    }
+    public void add(Word obj)
+    {
+        int i = obj.hashCode();
+                
+        if(table[i] == null){
+            table[i] = new ArrayList<Word>();
+        }
+        
+        if(!table[i].contains(obj))
+            table[i].add(obj);
+        
+    }
+
+    public String toString()
+    {
+        String output="HASHTABLE\n";
+        
+        for(int i = 0; i < table.length; i++){
+            if(table[i] != null)
+            {
+             output += "bucket " + i + " ";
+             output += Arrays.toString(table[i].toArray()) + "\n";
+            }
+            else
+                output += "bucket " + i + " is empty \n";
+        }
+        return output;
+    }
+}
